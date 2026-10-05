@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="description" content="QC活動の7工程とQC7つ道具・新QC7つ道具を整理し、PowerPointとExcelを作成。活動データはブラウザーに保存されます。" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#153e43" />
+    <title>QC Studio — QC活動資料の作成</title>
+    <link rel="stylesheet" href="./assets/styles-e299d23a96.css" />
+    <script type="module" src="./assets/app-BHGSCFGK.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#workspace">本文へ移動</a>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="活動と工程">
+        <a class="brand" href="./" aria-label="QC Studio ホーム">
+          <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+          <span>QC <strong>Studio</strong><small>現場の改善を、伝わる資料に。</small></span>
+        </a>
+        <div class="project-switcher">
+          <label for="project-select">作業中の活動</label>
+          <select id="project-select" disabled><option value="">読み込み中…</option></select>
+          <div class="project-tools">
+            <button class="sidebar-button" id="new-project" type="button" disabled><span aria-hidden="true">＋</span> 新しい活動</button>
+            <button class="sidebar-button muted" id="sample-project" type="button" disabled>サンプル</button>
+          </div>
+        </div>
+        <div class="sidebar-section-label"><span>QCストーリー</span><span id="step-count">7 STEPS</span></div>
+        <nav id="step-nav" class="step-nav" aria-label="QC活動の工程"></nav>
+        <button id="open-tools" class="tools-nav-button" type="button" disabled><span aria-hidden="true">◇</span><span>QC道具<small>QC7・新QC7・層別</small></span><span id="tools-count">0</span></button>
+        <div class="sidebar-footer">
+          <div class="local-status"><span class="status-dot"></span> このブラウザーに保存</div>
+          <p>7つの工程で考えを整理し、<br>PowerPoint・Excelへ。</p>
+          <p class="browser-storage-note">ブラウザーのデータ削除・別端末への移行前に、JSONバックアップを保存してください。</p>
+          <div class="backup-tools">
+            <button id="backup-project" type="button" disabled>JSONバックアップ</button>
+            <button id="import-project" type="button" disabled>読み込み（4 MBまで）</button>
+          </div>
+          <a class="licenses-link" href="./licenses.html" target="_blank" rel="noopener">使い方・ライセンス</a>
+          <input type="file" id="import-file" accept=".json,application/json" hidden />
+        </div>
+      </aside>
+      <div class="workspace-shell">
+        <header class="topbar">
+          <div class="topbar-context"><span class="eyebrow">QUALITY CIRCLE WORKSPACE</span><div class="save-line"><span id="save-status" role="status">準備しています</span><span id="revision-status"></span></div></div>
+          <div class="header-actions">
+            <button type="button" class="button button-quiet" id="save-project" disabled><span class="button-icon" aria-hidden="true">↧</span> 保存</button>
+            <span class="action-divider" aria-hidden="true"></span>
+            <button type="button" class="button button-excel" id="export-xlsx" disabled><span class="file-badge" aria-hidden="true">X</span> Excel</button>
+            <button type="button" class="button button-primary" id="export-pptx" disabled><span class="file-badge" aria-hidden="true">P</span> PowerPoint</button>
+          </div>
+        </header>
+        <main id="workspace" tabindex="-1">
+          <div id="loading-screen" class="loading-state"><span class="loading-spinner" aria-hidden="true"></span><p>ワークスペースを準備しています…</p></div>
+          <section id="welcome-screen" class="welcome-screen" hidden>
+            <div class="welcome-kicker"><span></span> QC ACTIVITY SUPPORT</div>
+            <h1>改善の道すじを、<br><em>一つのストーリーに。</em></h1>
+            <p class="welcome-intro">現場で気づいた課題から、標準化と振り返りまで。<br>7つの工程に沿って記録すると、QC活動資料が整います。</p>
+            <div class="welcome-actions"><button type="button" class="button button-primary button-large" data-command="new">新しいQC活動を作成 <span aria-hidden="true">↗</span></button><button type="button" class="button button-outline button-large" data-command="sample">架空データで試す</button></div>
+            <div class="welcome-features">
+              <article><span class="feature-number">01</span><h2>手順に沿って入力</h2><p>考えるポイントを確かめながら、活動の記録を積み重ねます。</p></article>
+              <article><span class="feature-number">02</span><h2>データを見える化</h2><p>対策前後の指標と推移を、入力した測定データから確認できます。</p></article>
+              <article><span class="feature-number">03</span><h2>編集できる資料へ</h2><p>PowerPointとExcelに出力し、社内の発表や管理に活用できます。</p></article>
+            </div>
+            <p class="welcome-note">活動データはこのブラウザーに保存され、このアプリから外部へ送信されません。ブラウザーのデータ削除や端末の変更に備え、JSONバックアップを保存してください。サンプルは架空の内容です。</p>
+          </section>
+          <div id="project-workspace" hidden>
+            <div id="sample-banner" class="sample-banner" hidden><span class="sample-badge">SAMPLE</span><span>サンプル（架空データ） — 操作を試すための活動です。出力資料にもサンプルと表示されます。</span></div>
+            <div id="error-banner" class="error-banner" role="alert" hidden></div>
+            <section class="project-heading"><div><span class="eyebrow" id="project-meta">QC ACTIVITY</span><h1 id="project-title">新しいQC活動</h1></div><span class="project-label">活動ノート</span></section>
+            <section class="metric-grid" id="metrics" aria-label="活動の指標"></section>
+            <section class="stage-heading"><div><span id="stage-eyebrow" class="eyebrow">STEP 01 / 07</span><h2 id="stage-title" tabindex="-1"></h2><p id="stage-description"></p></div><div class="stage-progress"><span id="stage-progress-text"></span><div class="progress-track"><span id="stage-progress-bar"></span></div><small>入力の目安</small></div></section>
+            <div class="stage-layout"><section id="stage-form" class="stage-form" aria-label="工程の入力"></section><aside id="stage-guide" class="stage-guide" aria-label="進め方のヒント"></aside></div>
+            <div id="analysis-section" class="analysis-section"></div>
+            <nav class="stage-pagination" aria-label="前後の工程"><button type="button" class="button button-outline" id="previous-step">← 前の工程</button><span id="pagination-label"></span><button type="button" class="button button-dark" id="next-step">次の工程 →</button></nav>
+            <p class="workspace-note">入力の充足度は活動の完了や効果の証明を示すものではありません。実際の現場で、事実と条件を確認してください。</p>
+            <section id="tool-workspace" hidden aria-label="QC道具ワークスペース"></section>
+          </div>
+        </main>
+      </div>
+    </div>
+    <div class="toast" id="toast" role="status" hidden><span id="toast-message"></span><button id="toast-action" type="button" hidden></button><button id="toast-close" type="button" aria-label="通知を閉じる">×</button></div>
+    <dialog id="confirm-dialog" aria-labelledby="dialog-title" aria-describedby="dialog-description"><div class="dialog-symbol" aria-hidden="true">↧</div><h2 id="dialog-title">変更を保存しますか？</h2><p id="dialog-description">保存していない変更があります。活動を切り替える前に保存できます。</p><div class="dialog-actions"><button type="button" class="button button-quiet" data-answer="cancel">キャンセル</button><button type="button" class="button button-outline" data-answer="discard">変更を破棄</button><button type="button" class="button button-primary" data-answer="save">保存して続ける</button></div></dialog>
+    <noscript>QC Studioを利用するには、ブラウザーのJavaScriptを有効にしてください。</noscript>
+  </body>
+</html>
