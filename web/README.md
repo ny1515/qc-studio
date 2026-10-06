@@ -2,7 +2,7 @@
 
 QC活動の記録を7つの工程に沿って整理し、編集できるPowerPoint・Excel資料を作成するブラウザーアプリです。QC7つ道具・新QC7つ道具・層別を使った図表も、活動資料の付録として出力できます。
 
-GitHub Pagesの公開先（予定）：[https://ny1515.github.io/qc-studio/](https://ny1515.github.io/qc-studio/)
+GitHub Pagesの公開サイト：[QC Studioを開く](https://ny1515.github.io/qc-studio/)
 
 ## 使い方
 
@@ -96,3 +96,4 @@ node web/dev-server.mjs
 ## 第三者ライブラリのライセンス
 
 同梱する第三者ライブラリの著作権表示とライセンスは、ビルド時に生成する`docs/THIRD-PARTY-NOTICES.txt`にまとめています。公開画面の「使い方・ライセンス」からも確認できます。
+
